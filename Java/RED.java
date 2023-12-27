@@ -10,16 +10,16 @@ public class RED {
         System.out.println("Enter the maximum number of packets:");
         int maxPackets = scanner.nextInt();
 
-        System.out.println("Enter the queue size:");//size of the queue the packets can be stored
+        System.out.println("Enter the queue size:");
         int queueSize = scanner.nextInt();
 
         System.out.println("Enter the maximum probability:");
         double maxProbability = scanner.nextDouble();
 
-        System.out.println("Enter the minimum probability:");//used to calculated the drop probabilty (max-min)
+        System.out.println("Enter the minimum probability:");
         double minProbability = scanner.nextDouble();
 
-        System.out.println("Enter the threshold value:");//the value after which the congestion control comes to action 
+        System.out.println("Enter the threshold value:"); 
         int threshold = scanner.nextInt();
 
         simulateCongestion(maxPackets, queueSize, maxProbability, minProbability, threshold);
@@ -34,7 +34,6 @@ public class RED {
 
             if (queueLength >= threshold && rand.nextDouble() < dropProbability) {
                 System.out.println("Packet dropped (CONGESTION AVOIDANCE)");
-                //checking the threshold value and the probabilty to check whether to accept or reject the packet
             } else {
                 System.out.println("Packet accepted " + (i + 1));
                 queueLength++;
